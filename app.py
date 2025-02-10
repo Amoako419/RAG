@@ -68,12 +68,21 @@ if query:
     with st.chat_message("user"):
         st.markdown(query)
 
-    ai_response = qa_chain.run(query)
-    st.session_state.chat_history.append({"role": "assistant", "content": ai_response})
+    # Add a spinner while the AI is generating a response
+    with st.spinner("AmaliAI is thinking..."):
+        try:
+            ai_response = qa_chain.run(query)
+            st.session_state.chat_history.append({"role": "assistant", "content": ai_response})
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
+            st.session_state.chat_history.append({"role": "assistant", "content": "Sorry, I encountered an error. Please try again."})
 
 # Display chat history in the main area
 for message in st.session_state.chat_history:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-
+# # Add a button to clear chat history
+# if st.button("Clear Chat History"):
+#     st.session_state.chat_history = []
+#     st.experimental_rerun()  # Refresh the app to reflect the cleared chat history
