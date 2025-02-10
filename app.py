@@ -11,11 +11,14 @@ from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, H
 load_dotenv()
 
 # Streamlit app title
-st.title("AmaliAI")
+st.title("AmaliAI🧑🏾‍💻")
 
 # Initialize chat history in session state 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
 # Step 1: Load the .txt file containing the essay
 loader = TextLoader("paul_graham_essay.txt")
@@ -36,7 +39,7 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, max_tokens
 
 # Step 6: Define a system prompt that uses "context"
 system_prompt = """
-You are an AI assistant that answers questions based on the provided document context, your name is AmaliAI.
+You are an AI assistant that answers questions about the Paul Graham Essay, your name is AmaliAI.
 Use the following pieces of context to answer the question at the end.
 Be friendly and helpful in your responses. 
 If you cannot answer the question from the context, just say "I don't know", don't try to make up an answer.
@@ -82,7 +85,3 @@ for message in st.session_state.chat_history:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# # Add a button to clear chat history
-# if st.button("Clear Chat History"):
-#     st.session_state.chat_history = []
-#     st.experimental_rerun()  # Refresh the app to reflect the cleared chat history
