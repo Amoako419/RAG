@@ -38,6 +38,7 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, max_tokens
 system_prompt = """
 You are an AI assistant that answers questions based on the provided document context.
 Use the following pieces of context to answer the question at the end.
+Be friendly and helpful in your responses. 
 If you cannot answer the question from the context, just say "I don't know", don't try to make up an answer.
 
 Context: {context}
@@ -66,20 +67,15 @@ if query:
     with st.chat_message("user"):
         st.markdown(query)
 
-    with st.chat_message("assistant"):
-        message_placeholder = st.empty()
-        full_response = ""
+    ai_response = qa_chain.run(query)
+    st.session_state.chat_history.append({"role": "assistant", "content": ai_response})
 
-        ai_response = qa_chain.run(query)
-        full_response = ai_response
+# Display chat history in the main area
+for message in st.session_state.chat_history:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-        message_placeholder.markdown(full_response)
 
-    st.session_state.chat_history.append({"role": "assistant", "content": full_response})
-
-# # **UI Improvement: Add a separator and title for chat history**
-# st.markdown("---") # Separator line
-# st.subheader("Conversation History") # Title for the history section
 
 # Display chat history in the main area
 for message in st.session_state.chat_history:
