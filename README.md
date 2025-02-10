@@ -20,6 +20,10 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+3. **Streamlit Interface**: Launch the Streamlit interface for interactive analysis.
+```bash
+streamlit run app.py
+```
 
 ## Directory Structure
 ```
@@ -28,6 +32,7 @@ RAG/
 │   └── paul_graham_essay.txt  # File containing Paul Graham's essay
 ├── src/                       # Source code for the application
 ├── tests/                     # Unit tests for the application
+├── app.py                     # Streamlit application file
 ├── README.md                  # This README file
 └── requirements.txt           # List of dependencies
 ```
@@ -35,6 +40,7 @@ RAG/
 ## Technology Stack
 - **LangChain**: For building the retrieval and generation pipelines.
 - **Gemini 2.0 Flash**: For efficient and scalable text processing.
+- **Streamlit**: For creating an interactive web interface.
 
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue to discuss any changes.
