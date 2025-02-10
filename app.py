@@ -11,7 +11,7 @@ from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, H
 load_dotenv()
 
 # Streamlit app title
-st.title("AmaliAI Chatbot")
+st.title("AmaliAI")
 
 # Initialize chat history in session state if it doesn't exist
 if "chat_history" not in st.session_state:
@@ -76,8 +76,3 @@ for message in st.session_state.chat_history:
         st.markdown(message["content"])
 
 
-
-# Display chat history in the main area
-for message in st.session_state.chat_history:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
