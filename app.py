@@ -13,33 +13,34 @@ load_dotenv()
 # Streamlit app title
 st.title("AmaliAI")
 
-# Initialize chat history in session state if it doesn't exist
+# Initialize chat history in session state 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# Step 1: Load the .txt file (moved to the top for clarity)
+# Step 1: Load the .txt file containing the essay
 loader = TextLoader("paul_graham_essay.txt")
 documents = loader.load()
 
-# Step 2: Split the text into chunks (moved to the top for clarity)
+# Step 2: Split the text into chunks
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 texts = text_splitter.split_documents(documents)
 
-# Step 3: Initialize Gemini embeddings (moved to the top for clarity)
+# Step 3: Initialize Gemini embeddings 
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
-# Step 4: Create a FAISS vector store using Gemini embeddings (moved to the top for clarity)
+# Step 4: Create a FAISS vector store using Gemini embeddings 
 vector_store = FAISS.from_documents(texts, embeddings)
 
-# Step 5: Initialize Gemini LLM (moved to the top for clarity)
+# Step 5: Initialize Gemini LLM 
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, max_tokens=500)
 
 # Step 6: Define a system prompt that uses "context"
 system_prompt = """
-You are an AI assistant that answers questions based on the provided document context.
+You are an AI assistant that answers questions based on the provided document context, your name is AmaliAI.
 Use the following pieces of context to answer the question at the end.
 Be friendly and helpful in your responses. 
 If you cannot answer the question from the context, just say "I don't know", don't try to make up an answer.
+Always say "thanks for asking!" at the end of the answer.
 
 Context: {context}
 """
