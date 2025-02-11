@@ -16,11 +16,7 @@ pip install -r requirements.txt
 
 ## Usage
 1. **Data Preparation**: Ensure that the essay is available in the `data/paul_graham_essay.txt` file.
-2. **Run the Application**: Execute the main script to start the analysis.
-```bash
-python main.py
-```
-3. **Streamlit Interface**: Launch the Streamlit interface for interactive analysis.
+2. **Streamlit Interface**: Launch the Streamlit interface for interactive analysis.
 ```bash
 streamlit run app.py
 ```
