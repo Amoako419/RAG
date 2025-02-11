@@ -11,12 +11,9 @@ from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, H
 load_dotenv()
 
 # Streamlit app title
-st.title("AmaliAI🧑🏾‍💻")
+st.title("Paul Graham Essay Chatbot")
 
 # Initialize chat history in session state 
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
-
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -65,8 +62,13 @@ qa_chain = RetrievalQA.from_chain_type(
 # Chatbot interface elements
 query = st.chat_input("Ask me anything about the essay:")
 
+# Display chat history in the main area
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
 if query:
-    st.session_state.chat_history.append({"role": "user", "content": query})
+    st.session_state.messages.append({"role": "user", "content": query})
 
     with st.chat_message("user"):
         st.markdown(query)
@@ -75,13 +77,11 @@ if query:
     with st.spinner("AmaliAI is thinking..."):
         try:
             ai_response = qa_chain.run(query)
-            st.session_state.chat_history.append({"role": "assistant", "content": ai_response})
+            st.session_state.messages.append({"role": "assistant", "content": ai_response})
+            
+            # Display the AI response in the chat
+            with st.chat_message("assistant"):
+                st.markdown(ai_response)
         except Exception as e:
             st.error(f"An error occurred: {e}")
-            st.session_state.chat_history.append({"role": "assistant", "content": "Sorry, I encountered an error. Please try again."})
-
-# Display chat history in the main area
-for message in st.session_state.chat_history:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-
+            st.session_state.messages.append({"role": "assistant", "content": "Sorry, I encountered an error. Please try again."})
