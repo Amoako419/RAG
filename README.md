@@ -28,8 +28,8 @@ streamlit run app.py
 ## Directory Structure
 ```
 RAG/
-├── data/
-│   └── paul_graham_essay.txt  # File containing Paul Graham's essay
+|
+|── paul_graham_essay.txt  # File containing Paul Graham's essay
 ├── src/                       # Source code for the application
 ├── tests/                     # Unit tests for the application
 ├── app.py                     # Streamlit application file
