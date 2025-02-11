@@ -36,7 +36,7 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, max_tokens
 
 #  Define a system prompt that uses "context"
 system_prompt = """
-You are an AI assistant that answers questions about the Paul Graham Essay, your name is AmaliAI.
+You are an AI assistant that answers questions about the Paul Graham Essay.
 Use the following pieces of context to answer the question at the end.
 Be friendly and helpful in your responses. 
 If you cannot answer the question from the context, just say "I don't know", don't try to make up an answer.
@@ -74,7 +74,7 @@ if query:
         st.markdown(query)
 
     # Add a spinner while the AI is generating a response
-    with st.spinner("AmaliAI is thinking..."):
+    with st.spinner("Chatbot is thinking..."):
         try:
             ai_response = qa_chain.run(query)
             st.session_state.messages.append({"role": "assistant", "content": ai_response})
