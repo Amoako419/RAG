@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-1. **Data Preparation**: Ensure that the essay is available in the `data/paul_graham_essay.txt` file.
+1. **Data Preparation**: Ensure that the essay is available in the `paul_graham_essay.txt` file.
 2. **Streamlit Interface**: Launch the Streamlit interface for interactive analysis.
 ```bash
 streamlit run app.py
