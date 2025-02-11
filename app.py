@@ -9,7 +9,6 @@ from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, H
 
 # Load environment variables (e.g., Google API key)
 load_dotenv()
-
 # Streamlit app title
 st.title("Paul Graham Essay Chatbot")
 
