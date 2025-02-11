@@ -32,7 +32,7 @@ embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 vector_store = FAISS.from_documents(texts, embeddings)
 
 # Initialize Gemini LLM 
-llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, max_tokens=500)
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, max_tokens=500,request_options={"timeout": 5000})
 
 #  Define a system prompt that uses "context"
 system_prompt = """
