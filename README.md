@@ -26,8 +26,6 @@ streamlit run app.py
 RAG/
 |
 |── paul_graham_essay.txt  # File containing Paul Graham's essay
-├── src/                       # Source code for the application
-├── tests/                     # Unit tests for the application
 ├── app.py                     # Streamlit application file
 ├── README.md                  # This README file
 └── requirements.txt           # List of dependencies
