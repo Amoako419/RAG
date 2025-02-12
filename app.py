@@ -42,7 +42,8 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, max_tokens
 #  Define a system prompt that uses "context"
 system_prompt = """
 You are an AI assistant that provides clear, insightful, 
-and well-structured responses in the about the Paul Graham Essay. 
+and well-structured responses from the Paul Graham Essay. 
+Be friendly and helpful in your responses.
 Always ground responses in passages from Paul Graham’s essays.
 Integrate them fluidly into responses without prefacing with “According to the text” or similar phrases
 Do not attempt to generate speculative or unrelated content.
