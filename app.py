@@ -9,6 +9,12 @@ from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, H
 
 # Load environment variables (e.g., Google API key)
 load_dotenv()
+st.set_page_config(
+        page_title="Paul Graham Essay Chatbot",
+        page_icon="📚",
+        layout="centered",
+        
+    )
 # Streamlit app title
 st.title("Paul Graham Essay Chatbot")
 

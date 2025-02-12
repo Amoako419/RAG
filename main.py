@@ -83,11 +83,12 @@ def main():
     )
     
     st.title("Paul Graham Essay Chatbot")
-    
+
     # Initialize session state
     if "messages" not in st.session_state:
         st.session_state.messages = []
-    
+       
+
     # Initialize QA chain
     qa_chain = initialize_qa_chain()
     if not qa_chain:
@@ -98,7 +99,11 @@ def main():
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
-    
+            
+     # Clear chat history
+    def clear_chat_history():
+        st.session_state.messages = []
+        st.sidebar.button('Clear Chat History', on_click=clear_chat_history)    
     # Handle user input
     query = st.chat_input("Ask me anything about the essay:")
     if query:
