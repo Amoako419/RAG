@@ -1,7 +1,7 @@
 # RAG Application on Paul Graham Essay
 
 ## Overview
-This application is designed to analyze and generate insights from essays written by Paul Graham using Retrieval-Augmented Generation (RAG) techniques.
+This application is designed to analyze and generate insights from essays written by Paul Graham using Retrieval-Augmented Generation (RAG) techniques. By leveraging advanced text retrieval and generation models, the application provides a comprehensive analysis of the essays, offering new perspectives and deeper understanding.
 
 ## Features
 - **Text Retrieval**: Efficiently retrieve relevant sections from Paul Graham's essays.
@@ -16,11 +16,7 @@ pip install -r requirements.txt
 
 ## Usage
 1. **Data Preparation**: Ensure that the essay is available in the `paul_graham_essay.txt` file.
-2. **Run the Application**: Execute the main script to start the analysis.
-```bash
-python main.py
-```
-3. **Streamlit Interface**: Launch the Streamlit interface for interactive analysis.
+2. **Streamlit Interface**: Launch the Streamlit interface for interactive analysis.
 ```bash
 streamlit run app.py
 ```
@@ -29,8 +25,6 @@ streamlit run app.py
 ```
 RAG/
 ├── paul_graham_essay.txt      # File containing Paul Graham's essay
-├── src/                       # Source code for the application
-├── tests/                     # Unit tests for the application
 ├── app.py                     # Streamlit application file
 ├── README.md                  # This README file
 └── requirements.txt           # List of dependencies
