@@ -8,6 +8,9 @@ This application is designed to analyze and generate insights from essays writte
 - **Text Generation**: Generate new text based on the retrieved sections.
 - **Analysis Tools**: Tools to analyze the content and structure of the essays.
 
+## Streamlit Link
+Access the Streamlit application [here](https://paul-essays.streamlit.app/).
+
 ## Installation
 To install the necessary dependencies, run:
 ```bash
@@ -35,8 +38,7 @@ RAG/
 - **Gemini 2.0 Flash**: For efficient and scalable text processing.
 - **Streamlit**: For creating an interactive web interface.
 
-## Streamlit Link
-Access the Streamlit application [here](https://paul-essays.streamlit.app/).
+
 
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue to discuss any changes.
